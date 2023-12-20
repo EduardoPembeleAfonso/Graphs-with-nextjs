@@ -25,7 +25,7 @@ export const options = {
   },
 }
 
-export function BarChart() {
+export default function BarChart() {
   const [selectedMode, setSelectedMode] = React.useState('day') // Estado para controlar a opção selecionada no select
   const [displayMode, setDisplayMode] = React.useState('day') // Estado para controlar o modo de exibição (dia, mês ou ano)
   const [data, setData] = useState({ datasets: [] })

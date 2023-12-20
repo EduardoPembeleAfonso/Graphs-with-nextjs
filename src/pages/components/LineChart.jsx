@@ -37,7 +37,7 @@ export const options = {
   },
 };
 
-export function LineChart() {
+export default function LineChart() {
   const [selectedMode, setSelectedMode] = useState("day"); // Estado para controlar a opção selecionada no select
   const [displayMode, setDisplayMode] = useState("day"); // Estado para controlar o modo de exibição (dia, mês ou ano)
   const [data, setData] = useState({ datasets: [] });
