@@ -12,7 +12,7 @@ import {
   Legend,
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
-import { barChartsData } from '../api/data'
+import { chartsData } from '../api/data'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
@@ -34,7 +34,7 @@ export function BarChart() {
   const _data = async () => {
 
     // pegando os dias e os seus valores
-    const valuesByDay = barChartsData.reduce((acc, curr) => {
+    const valuesByDay = chartsData.reduce((acc, curr) => {
       const date = new Date(curr.createdAt)
       const day = date.toLocaleDateString('pt-BR', { weekday: 'long' })
       acc[day] = acc[day] ? acc[day] + curr.value : curr.value
@@ -42,7 +42,7 @@ export function BarChart() {
     }, {})
     
     // pegando os meses e os seus valores
-    const valuesByMonth = barChartsData.reduce((acc, curr) => {
+    const valuesByMonth = chartsData.reduce((acc, curr) => {
       const date = new Date(curr.createdAt)
       const month = date.toLocaleDateString('pt-BR', {
         month: 'long',
@@ -52,7 +52,7 @@ export function BarChart() {
     }, {})
 
     // pegando os anos e os seus valores
-    const valuesByYear = barChartsData.reduce((acc, curr) => {
+    const valuesByYear = chartsData.reduce((acc, curr) => {
       const date = new Date(curr.createdAt)
       const year = date.getFullYear()
       acc[year] = acc[year] ? acc[year] + curr.value : curr.value

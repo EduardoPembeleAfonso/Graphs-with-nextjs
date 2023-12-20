@@ -13,7 +13,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { barChartsData } from "../api/data";
+import { chartsData } from "../api/data";
 
 ChartJS.register(
   CategoryScale,
@@ -45,7 +45,7 @@ export function LineChart() {
 
   const _data = async () => {
     // pegando os dias e os seus valores de entrada
-    const valuesByDay = barChartsData.reduce((acc, curr) => {
+    const valuesByDay = chartsData.reduce((acc, curr) => {
       const date = new Date(curr.createdAt);
       const day = date.toLocaleDateString("pt-BR", { weekday: "long" });
       acc[day] = acc[day] ? acc[day] + curr.value : curr.value;
@@ -53,7 +53,7 @@ export function LineChart() {
     }, {});
 
     // pegando os dias e os seus custos
-    const originalValueByDay = barChartsData.reduce((acc, curr) => {
+    const originalValueByDay = chartsData.reduce((acc, curr) => {
       const date = new Date(curr.createdAt);
       const day = date.toLocaleDateString("pt-BR", { weekday: "long" });
       acc[day] = acc[day]
@@ -63,7 +63,7 @@ export function LineChart() {
     }, {});
 
     // pegando os dias e os seus lucros
-    const profitByDay = barChartsData.reduce((acc, curr) => {
+    const profitByDay = chartsData.reduce((acc, curr) => {
       const date = new Date(curr.createdAt);
       const day = date.toLocaleDateString("pt-BR", { weekday: "long" });
       acc[day] = acc[day]
@@ -73,7 +73,7 @@ export function LineChart() {
     }, {});
 
     // pegando os meses e os seus valores de entrada
-    const valuesByMonth = barChartsData.reduce((acc, curr) => {
+    const valuesByMonth = chartsData.reduce((acc, curr) => {
       const date = new Date(curr.createdAt);
       const month = date.toLocaleDateString("pt-BR", {
         month: "long",
@@ -83,7 +83,7 @@ export function LineChart() {
     }, {});
 
     // pegando os meses e os seus lucros
-    const profitByMonth = barChartsData.reduce((acc, curr) => {
+    const profitByMonth = chartsData.reduce((acc, curr) => {
       const date = new Date(curr.createdAt);
       const month = date.toLocaleDateString("pt-BR", { month: "long" });
       acc[month] = acc[month]
@@ -93,7 +93,7 @@ export function LineChart() {
     }, {});
 
     // pegando os meses e os seus custos
-    const originalValueByMonth = barChartsData.reduce((acc, curr) => {
+    const originalValueByMonth = chartsData.reduce((acc, curr) => {
       const date = new Date(curr.createdAt);
       const month = date.toLocaleDateString("pt-BR", { month: "long" });
       acc[month] = acc[month]
@@ -103,7 +103,7 @@ export function LineChart() {
     }, {});
 
     // pegando os anos e os seus valores de entrada
-    const valuesByYear = barChartsData.reduce((acc, curr) => {
+    const valuesByYear = chartsData.reduce((acc, curr) => {
       const date = new Date(curr.createdAt);
       const year = date.getFullYear();
       acc[year] = acc[year]
@@ -113,7 +113,7 @@ export function LineChart() {
     }, {});
 
     // pegando os anos e os seus lucros
-    const profitByYear = barChartsData.reduce((acc, curr) => {
+    const profitByYear = chartsData.reduce((acc, curr) => {
       const date = new Date(curr.createdAt);
       const year = date.getFullYear();
       acc[year] = acc[year]
@@ -123,7 +123,7 @@ export function LineChart() {
     }, {});
 
     // pegando os anos e os seus custos
-    const originalValueByYear = barChartsData.reduce((acc, curr) => {
+    const originalValueByYear = chartsData.reduce((acc, curr) => {
       const date = new Date(curr.createdAt);
       const year = date.getFullYear();
       acc[year] = acc[year]

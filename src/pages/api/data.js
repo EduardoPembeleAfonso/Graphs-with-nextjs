@@ -1,4 +1,4 @@
-export const barChartsData = [
+export const chartsData = [
   {
     id: Math.random(),
     value: 3000,
